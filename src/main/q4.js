@@ -1,3 +1,3 @@
 module.exports = (a) => {
-    return (b) => a + b
-}
+    return (b) => a + b;
+};

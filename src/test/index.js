@@ -1,9 +1,8 @@
 var assert = require('chai').assert,
-    expect = require('chai').expect,
     moduleName = '../../dist/';
 
 describe('Crockford tests', function () {
-    it(' Write a function that takes an argument and returns that argument.', function () {
+    it('Write a function that takes an argument and returns that argument.', function () {
         var solution = require(moduleName + 'q1');
 
         ['a', 'b', 'c'].forEach(function(arg) {
@@ -18,7 +17,7 @@ describe('Crockford tests', function () {
         assert.equal(solution.mul(2, 2), 4);
     });
 
-    it(' Write a function that takes an argument and returns a function that returns that argument', function () {
+    it('Write a function that takes an argument and returns a function that returns that argument', function () {
         var solution = require(moduleName + 'q3');
 
         ['plop', {}, 2].forEach(function (argument) {
@@ -32,8 +31,13 @@ describe('Crockford tests', function () {
         assert.equal(solution(3)(5), 8);
     });
 
-    it(' Write a function that takes a binary function, and makes it callable with two invocations.', function () {
+    it('Write a function that takes a binary function, and makes it callable with two invocations.', function () {
+        var applyf = require(moduleName + 'q5');
+        var calc = require(moduleName + 'q2')();
+        var addf = applyf(calc.add);
 
+        assert.equal(addf(3)(4), 7);
+        assert.equal(applyf(calc.mul())(5)(6), 30);
     });
 });
 

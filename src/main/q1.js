@@ -1,1 +1,1 @@
-module.exports = (arg) => arg
+module.exports = (arg) => arg;
