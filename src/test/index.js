@@ -37,7 +37,7 @@ describe('Crockford tests', function () {
         var addf = applyf(calc.add);
 
         assert.equal(addf(3)(4), 7);
-        assert.equal(applyf(calc.mul())(5)(6), 30);
+        assert.equal(applyf(calc.mul)(5)(6), 30);
     });
 });
 
