@@ -50,6 +50,23 @@ describe('Crockford tests', function () {
         assert.equal(add3(4), 7);
         assert(curry(mul, 5)(6), 30);
     });
+
+    describe('Without writing any new functions, show three ways to create the inc function', function () {
+        it('solution 1', function () {
+            assert.equal(inc(5), 6);
+            assert.equal(inc(inc(5)), 7);
+        });
+
+        it('solution 2', function () {
+            assert.equal(inc(5), 6);
+            assert.equal(inc(inc(5)), 7);
+        });
+
+        it('solution 3', function () {
+            assert.equal(inc(5), 6);
+            assert.equal(inc(inc(5)), 7);
+        });
+    });
 });
 
 
