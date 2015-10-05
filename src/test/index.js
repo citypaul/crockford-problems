@@ -53,16 +53,29 @@ describe('Crockford tests', function () {
 
     describe('Without writing any new functions, show three ways to create the inc function', function () {
         it('solution 1', function () {
+            var curry = require(moduleName + 'q6');
+            var calc = require(moduleName + 'q2')();
+            var add = calc.add;
+            var inc = curry(add, 1);
+
             assert.equal(inc(5), 6);
             assert.equal(inc(inc(5)), 7);
         });
 
         it('solution 2', function () {
+            var twoInvocationAdder = require(moduleName + 'q4');
+            var inc = twoInvocationAdder(1);
+
             assert.equal(inc(5), 6);
             assert.equal(inc(inc(5)), 7);
         });
 
         it('solution 3', function () {
+            var applyf = require(moduleName + 'q5');
+            var calc = require(moduleName + 'q2')();
+            var addf = applyf(calc.add);
+            var inc = addf(1);
+
             assert.equal(inc(5), 6);
             assert.equal(inc(inc(5)), 7);
         });
