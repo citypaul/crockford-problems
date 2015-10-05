@@ -39,6 +39,17 @@ describe('Crockford tests', function () {
         assert.equal(addf(3)(4), 7);
         assert.equal(applyf(calc.mul)(5)(6), 30);
     });
+
+    it('Write a function that takes a function and an argument, and returns a function that can supply a second argument', function () {
+        var curry = require(moduleName + 'q6');
+        var calc = require(moduleName + 'q2')();
+        var add = calc.add;
+        var mul = calc.mul;
+        var add3 = curry(add, 3);
+
+        assert.equal(add3(4), 7);
+        assert(curry(mul, 5)(6), 30);
+    });
 });
 
 
